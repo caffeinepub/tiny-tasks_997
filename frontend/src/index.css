@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      sans-serif;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .task-item-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  .task-item-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 300ms,
+      transform 300ms;
+  }
+
+  .task-item-exit {
+    opacity: 1;
+  }
+
+  .task-item-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:
+      opacity 300ms,
+      transform 300ms;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Focus styles */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Smooth transitions */
+* {
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
